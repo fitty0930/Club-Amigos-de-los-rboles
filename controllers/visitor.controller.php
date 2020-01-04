@@ -15,6 +15,18 @@
         }
 
         public function showTrees($params=NULL){
-            $this->visitorView->showTrees();
+            $arboles = $this->treeModel->getTrees(); // arboles es un array
+            $this->visitorView->showTrees($arboles);
+        }
+
+        public function showTree($params=NULL){// un arbol individualmente TERMINARLA
+            $id_arbol=$params[':ID'];
+            $arbol = $this->treeModel->getTree($id_arbol);
+            if($arbol){
+                $this->visitorView->showTreeDetail($arbol);
+            }else{
+                // MOSTRAR UN ERROR
+                echo "reporten al void of mrd";
+            }
         }
     }

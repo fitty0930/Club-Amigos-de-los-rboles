@@ -15,6 +15,8 @@ if (!isset($_GET['action'])){
 $r= new Router();
 
 $r->addRoute("home","GET","VisitorController", "showTrees");
+$r->addRoute("arboles","GET","VisitorController","showTrees");
+$r->addRoute("arboles/:ID","GET","VisitorController","showTree");
 
 // DEFAULT
 $r->setDefaultRoute("VisitorController", "showTrees");

@@ -12,7 +12,13 @@
             
         }
 
-        public function showTrees(){ // mostrarArboles
+        public function showTrees($arboles=NULL){ // mostrarArboles
+            $this->smarty->assign('arboles', $arboles);
             $this->smarty->display('templates/showTrees.tpl');
+        }
+
+        public function showTreeDetail($arbol=NULL){ // detalle del arbol
+            $this->smarty->assign('arbol', $arbol);
+            $this->smarty->display('templates/showTree.tpl');
         }
     }
