@@ -1,7 +1,7 @@
 <?php
 
 require_once "controllers/visitor.controller.php"; // visitante
-// require_once "controllers/usuario.controller.php"; // usuarios del sitio
+require_once "controllers/user.controller.php"; // administradores del sitio
 require_once "Router.php";
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -17,7 +17,7 @@ $r= new Router();
 $r->addRoute("home","GET","VisitorController", "showTrees");
 $r->addRoute("arboles","GET","VisitorController","showTrees");
 $r->addRoute("arboles/:ID","GET","VisitorController","showTree");
-
+$r->addRoute("nuevoarbol","POST","UserController","addTree");
 // DEFAULT
 $r->setDefaultRoute("VisitorController", "showTrees");
 

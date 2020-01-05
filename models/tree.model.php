@@ -25,4 +25,15 @@
             $query->execute([$id_arbol]);
             return $query->fetch(PDO::FETCH_OBJ);
         }
+
+        public function addTree($id_especie, $descripcion, $latitud, $longitud, $senializado){
+            $query=$this->db->prepare('INSERT INTO arbol(id_especie, descripcion, latitud, longitud, senializado) VALUES(?,?,?,?,?)');
+            $query->execute([$id_especie, $descripcion, $latitud, $longitud, $senializado]);
+        }
+
+        public function updateTree($id_arbol, $id_especie, $descripcion, $latitud, $longitud, $senializado){// actualizar($id_arbol, $id_especie, $descripcion, $latitud, $longitud, $señalizado)
+            $query=$this->db->prepare('UPDATE arbol SET id_especie=?, descripcion=?, latitud=?, longitud=?, senializado=? WHERE id_arbol=?');
+            $query->execute([$id_arbol, $id_especie, $descripcion, $latitud, $longitud, $senializado]);
+        }
+       
     }

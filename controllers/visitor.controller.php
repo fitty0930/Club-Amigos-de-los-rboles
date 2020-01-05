@@ -11,7 +11,8 @@
         public function __construct(){
             $this->treeModel = new TreeModel();
             $this->speciesModel = new SpeciesModel();
-            $this->visitorView = new VisitorView();
+            $especies=$this->speciesModel->getSpecies();
+            $this->visitorView = new VisitorView($especies);
         }
 
         public function showTrees($params=NULL){

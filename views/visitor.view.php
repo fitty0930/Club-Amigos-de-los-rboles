@@ -5,10 +5,11 @@
 
         private $smarty;
         
-        public function __construct(){
+        public function __construct($especies){
 
             $this->smarty = new Smarty();
             $this->smarty->assign('basehref', BASE_URL);
+            $this->smarty->assign('especies',$especies);
             
         }
 
