@@ -23,8 +23,8 @@
             $anio_plantado = $_POST['anio_plantado'];
             $senializado = $_POST['senializado']; 
 
-            if((!empty($id_especie))&&(!empty($descripcion))&&(!empty($latitud))&&(!empty($longitud))&&(!empty($anio_plantado))&&(!empty($senializado))){
-                $this->treeModel->addTree($id_especie, $descripcion, $latitud, $longitud, $senializado);
+            if((!empty($id_especie))&&(!empty($descripcion))&&(!empty($latitud))&&(!empty($longitud))&&(!empty($anio_plantado))){
+                $this->treeModel->addTree($id_especie, $descripcion, $latitud, $longitud, $anio_plantado, $senializado);
                 header("Location: arboles"); // lo pateo a arboles
             }else{
                 echo 'eres una grandisima mrd';
@@ -35,5 +35,27 @@
             $id_arbol=$params[':ID'];
             $this->treeModel->deleteTree($id_arbol);
             header("Location: ../arboles");
+        }
+
+        public function treeEditor($params=NULL){
+            $id_arbol=$params[':ID'];
+            $arbol = $this->treeModel->getTree($id_arbol);
+            $this->visitorView->showTreeEditor($arbol);
+        }
+
+        public function editTree($params=NULL){
+            $id_arbol=$params[':ID'];
+            $id_especie = $_POST['especie']; 
+            $descripcion = $_POST['descripcion']; 
+            $latitud = $_POST['latitud']; 
+            $longitud = $_POST['longitud']; 
+            $anio_plantado = $_POST['anio_plantado'];
+            $senializado = $_POST['senializado'];
+            if((!empty($id_especie))&&(!empty($descripcion))&&(!empty($latitud))&&(!empty($longitud))&&(!empty($anio_plantado))){
+                $this->treeModel->updateTree($id_arbol, $id_especie, $descripcion, $latitud, $longitud, $anio_plantado, $senializado);
+                header("Location: ../arboles"); // lo pateo a arboles
+            }else{
+                echo 'eres una grandisima mrd';
+            }; 
         }
     }

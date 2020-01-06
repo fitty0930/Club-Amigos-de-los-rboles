@@ -6,7 +6,7 @@
 </p>
 <h5> Descripcion de la especie </h5>
 <p>
-    {$arbol->id_especie}
+    {$arbol->descripcionsp}
 </p>
 <h5> Descripcion del ejemplar </h5>
 <p>

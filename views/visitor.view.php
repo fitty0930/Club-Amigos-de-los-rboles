@@ -22,4 +22,9 @@
             $this->smarty->assign('arbol', $arbol);
             $this->smarty->display('templates/showTree.tpl');
         }
+
+        public function showTreeEditor($arbol){
+            $this->smarty->assign('arbol', $arbol);
+            $this->smarty->display('templates/showTreeEditor.tpl');
+        }
     }
