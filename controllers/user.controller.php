@@ -30,4 +30,10 @@
                 echo 'eres una grandisima mrd';
             }; 
         }
+
+        public function deleteTree($params=NULL){
+            $id_arbol=$params[':ID'];
+            $this->treeModel->deleteTree($id_arbol);
+            header("Location: ../arboles");
+        }
     }

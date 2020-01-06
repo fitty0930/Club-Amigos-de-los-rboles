@@ -8,14 +8,17 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col"> Descripcion del ejemplar </th>
                         <th scope="col"> Tipo de arbol</th>
+
                         <th scope="col"> Año de plantación </th>
                     </tr>
                 </thead>
                 <tbody>
                     {foreach $arboles as $arbol}
                     <tr>
-                        <td><a href="arboles/{$arbol->id_arbol}"> {$arbol->nombre} </a></td>
+                        <td><a href="arboles/{$arbol->id_arbol}">{$arbol->descripcion} </a></td>
+                        <td>{$arbol->nombre}</td>
                         <td>{$arbol->anio_plantado}</td>
                     </tr>
                     {/foreach}

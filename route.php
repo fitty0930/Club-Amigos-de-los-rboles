@@ -18,6 +18,7 @@ $r->addRoute("home","GET","VisitorController", "showTrees");
 $r->addRoute("arboles","GET","VisitorController","showTrees");
 $r->addRoute("arboles/:ID","GET","VisitorController","showTree");
 $r->addRoute("nuevoarbol","POST","UserController","addTree");
+$r->addRoute("borrararbol/:ID","GET","UserController","deleteTree");
 // DEFAULT
 $r->setDefaultRoute("VisitorController", "showTrees");
 

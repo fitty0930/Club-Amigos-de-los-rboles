@@ -1,5 +1,5 @@
 <?php
-    // hace el login
+    
     class TreeModel{
         private $db;
 
@@ -15,7 +15,7 @@
         }
 
         public function getTrees(){
-            $query=$this->db->prepare("SELECT * FROM arbol JOIN especie ON arbol.id_especie = especie.id_especie");
+            $query=$this->db->prepare("SELECT arbol.id_arbol, arbol.descripcion, arbol.anio_plantado, especie.nombre, especie.descripcion AS id_especie FROM arbol JOIN especie ON arbol.id_especie = especie.id_especie");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
@@ -34,6 +34,11 @@
         public function updateTree($id_arbol, $id_especie, $descripcion, $latitud, $longitud, $senializado){// actualizar($id_arbol, $id_especie, $descripcion, $latitud, $longitud, $señalizado)
             $query=$this->db->prepare('UPDATE arbol SET id_especie=?, descripcion=?, latitud=?, longitud=?, senializado=? WHERE id_arbol=?');
             $query->execute([$id_arbol, $id_especie, $descripcion, $latitud, $longitud, $senializado]);
+        }
+
+        public function deleteTree($id_arbol){
+            $query=$this->db->prepare('DELETE FROM arbol WHERE id_arbol=?');
+            $query->execute([$id_arbol]);
         }
        
     }
