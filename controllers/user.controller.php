@@ -13,8 +13,10 @@
             $this->speciesModel = new SpeciesModel();
             $especies=$this->speciesModel->getSpecies();
             $this->visitorView = new VisitorView($especies);
+            $this->userView = new UserView($especies);
         }
 
+        // FUNCIONALIDADES DE LOS ARBOLES
         public function addTree(){
             $id_especie = $_POST['especie']; 
             $descripcion = $_POST['descripcion']; 
@@ -57,5 +59,11 @@
             }else{
                 echo 'eres una grandisima mrd';
             }; 
+        }
+
+        // FUNCIONALIDADES DE LAS ESPECIES
+        
+        public function showSpecies(){
+            $this->userView->showSpecies($especies);
         }
     }
