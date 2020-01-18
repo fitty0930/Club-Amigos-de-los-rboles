@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-01-2020 a las 23:31:56
+-- Tiempo de generación: 18-01-2020 a las 02:52:46
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -34,9 +34,20 @@ CREATE TABLE `arbol` (
   `descripcion` varchar(200) NOT NULL,
   `latitud` int(11) NOT NULL,
   `longitud` int(11) NOT NULL,
-  `año_plantado` int(11) NOT NULL,
-  `señalizado` tinyint(1) NOT NULL
+  `anio_plantado` int(11) NOT NULL,
+  `senializado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `arbol`
+--
+
+INSERT INTO `arbol` (`id_arbol`, `id_especie`, `descripcion`, `latitud`, `longitud`, `anio_plantado`, `senializado`) VALUES
+(4, 2, 'otro arbol', 120, 100, 2400, 1),
+(8, 1, 'hola como estas', 1231, 31231, 0, 0),
+(9, 1, 'asdfas', 231231, 31231, 0, 1),
+(10, 1, 'un ejemplar mio', 1321, 12312, 12312, 1),
+(11, 1, 'a ver', 9, 9, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -49,6 +60,14 @@ CREATE TABLE `especie` (
   `nombre` varchar(200) NOT NULL,
   `descripcion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `especie`
+--
+
+INSERT INTO `especie` (`id_especie`, `nombre`, `descripcion`) VALUES
+(1, 'Arce de Montpellier', 'Este arce es un pequeño árbol que alcanza los 10 m y suele tener una copa densa que da mucha sombra. Las hojas son caducas aunque algo coriáceas, simples, opuestas y poseen 3 lóbulos más o menos igual'),
+(2, 'Acacia', 'El género Acacia comprende unas 1200 especies de árboles y arbustos, muchos espinosos, aunque los hay inermes. Las hojas son siempre de margen entero y pueden ser caducas, compuestas y pinnadas dos o ');
 
 --
 -- Índices para tablas volcadas
@@ -75,13 +94,13 @@ ALTER TABLE `especie`
 -- AUTO_INCREMENT de la tabla `arbol`
 --
 ALTER TABLE `arbol`
-  MODIFY `id_arbol` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_arbol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
