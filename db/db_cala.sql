@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-01-2020 a las 02:52:46
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.9
+-- Tiempo de generación: 18-01-2020 a las 03:43:59
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,7 +47,8 @@ INSERT INTO `arbol` (`id_arbol`, `id_especie`, `descripcion`, `latitud`, `longit
 (8, 1, 'hola como estas', 1231, 31231, 0, 0),
 (9, 1, 'asdfas', 231231, 31231, 0, 1),
 (10, 1, 'un ejemplar mio', 1321, 12312, 12312, 1),
-(11, 1, 'a ver', 9, 9, 20, 1);
+(11, 1, 'a ver', 9, 9, 20, 1),
+(12, 6, 'asfdasfas', 2312, 1231, 1231231, 1);
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,8 @@ CREATE TABLE `especie` (
 
 INSERT INTO `especie` (`id_especie`, `nombre`, `descripcion`) VALUES
 (1, 'Arce de Montpellier', 'Este arce es un pequeño árbol que alcanza los 10 m y suele tener una copa densa que da mucha sombra. Las hojas son caducas aunque algo coriáceas, simples, opuestas y poseen 3 lóbulos más o menos igual'),
-(2, 'Acacia', 'El género Acacia comprende unas 1200 especies de árboles y arbustos, muchos espinosos, aunque los hay inermes. Las hojas son siempre de margen entero y pueden ser caducas, compuestas y pinnadas dos o ');
+(2, 'Acacia', 'El género Acacia comprende unas 1200 especies de árboles y arbustos, muchos espinosos, aunque los hay inermes. Las hojas son siempre de margen entero y pueden ser caducas, compuestas y pinnadas dos o '),
+(6, 'Castaño', 'El castaño es un árbol de crecimiento rápido que puede alcanzar los 30 m de altura, un desarrollo impresionante en grosor y gran longevidad, pues se conocen algunos ejemplares milenarios.');
 
 --
 -- Índices para tablas volcadas
@@ -94,13 +96,13 @@ ALTER TABLE `especie`
 -- AUTO_INCREMENT de la tabla `arbol`
 --
 ALTER TABLE `arbol`
-  MODIFY `id_arbol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_arbol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_especie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

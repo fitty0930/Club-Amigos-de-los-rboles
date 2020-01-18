@@ -2,11 +2,13 @@
     require_once "./models/tree.model.php";
     require_once "./models/species.model.php";
     require_once "./views/visitor.view.php";
-
+    require_once "./views/user.view.php";
+    
     class UserController{
         private $treeModel; 
         private $speciesModel; 
         private $visitorView;
+        private $userView;
 
         public function __construct(){
             $this->treeModel = new TreeModel();
@@ -63,7 +65,43 @@
 
         // FUNCIONALIDADES DE LAS ESPECIES
         
-        public function showSpecies(){
+        public function showSpecies($especies){
             $this->userView->showSpecies($especies);
+        }
+
+        public function addSpecie(){
+            $nombre = $_POST['nombre']; 
+            $descripcion = $_POST['descripcion']; 
+            if((!empty($nombre))&&(!empty($descripcion))){
+                $this->speciesModel->addSpecie($nombre,$descripcion);
+                header("Location: especies"); // lo pateo a arboles
+            }else{
+                echo 'eres una grandisima mrd';
+            }; 
+        }
+
+        public function deleteSpecie($params=NULL){
+            $id_especie = $params[':ID'];
+            $this->speciesModel->deleteSpecie($id_especie);
+            header("Location: ../especies");
+        }
+
+        public function specieEditor($params=NULL){
+            $id_especie=$params[':ID'];
+            $especie = $this->speciesModel->getSpecie($id_especie);
+            $this->userView->showSpecieEditor($especie);
+        }
+
+        public function editSpecie($params=NULL){
+            $id_especie = $params[':ID']; 
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            
+            if((!empty($id_especie))&&(!empty($descripcion))&&(!empty($nombre))){
+                $this->speciesModel->updateSpecie($id_especie, $nombre, $descripcion);
+                header("Location: ../especies"); // lo pateo a especies
+            }else{
+                echo 'eres una grandisima mrd';
+            }; 
         }
     }

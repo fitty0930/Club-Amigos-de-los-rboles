@@ -15,7 +15,12 @@
 
         public function showSpecies($especies=NULL){ // mostrarArboles
             $this->smarty->assign('tituloPagina','Especies');
-            $this->smarty->assign('especies', $especies); // se puede obviar
             $this->smarty->display('templates/showSpecies.tpl');
+        }
+
+        public function showSpecieEditor($especie=NULL){
+            $this->smarty->assign('tituloPagina','Editar Especie');
+            $this->smarty->assign('especie', $especie);
+            $this->smarty->display('templates/showSpecieEditor.tpl');
         }
     }
