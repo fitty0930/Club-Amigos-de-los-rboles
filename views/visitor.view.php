@@ -30,4 +30,10 @@
             $this->smarty->assign('arbol', $arbol);
             $this->smarty->display('templates/showTreeEditor.tpl');
         }
+
+        public function showSpecieFilter($especieFiltros){
+            $this->smarty->assign('tituloPagina', $especieFiltros[0]->nombre);
+            $this->smarty->assign('especieFiltros',$especieFiltros);
+            $this->smarty->display('templates/showSpecieFilter.tpl');
+        }
     }

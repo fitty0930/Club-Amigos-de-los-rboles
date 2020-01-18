@@ -30,4 +30,10 @@
                 echo "reporten al void of mrd";
             }
         }
+
+        public function showSpecieFilter($params=NULL){
+            $id_especie=$params[':ID'];
+            $especieFiltros = $this->treeModel->getSpecieFilter($id_especie);
+            $this->visitorView->showSpecieFilter($especieFiltros);
+        }
     }

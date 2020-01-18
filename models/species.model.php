@@ -15,7 +15,7 @@
         }
 
         public function getSpecies(){
-            $query= $this->db->prepare('SELECT * FROM especie');
+            $query= $this->db->prepare('SELECT * FROM especie ORDER BY especie.nombre ASC');
             $query->execute();
             return $query->fetchAll(PDO::FETCH_OBJ);
         }

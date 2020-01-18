@@ -40,5 +40,11 @@
             $query=$this->db->prepare('DELETE FROM arbol WHERE id_arbol=?');
             $query->execute([$id_arbol]);
         }
+
+        public function getSpecieFilter($id_especie){
+            $query = $this->db->prepare('SELECT arbol.id_arbol, arbol.id_especie, arbol.descripcion, arbol.latitud, arbol.longitud, arbol.anio_plantado, arbol.senializado, especie.nombre, especie.descripcion AS descripcionsp  FROM arbol JOIN especie ON arbol.id_especie=especie.id_especie WHERE arbol.id_especie=?');
+            $query->execute([$id_especie]);
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
        
     }

@@ -24,6 +24,7 @@ $r->addRoute("editordearbol/:ID","GET","UserController","treeEditor");
 $r->addRoute("editararbol/:ID","POST","UserController","editTree");
 //SPECIES
 $r->addRoute("especies","GET","UserController","showSpecies");
+$r->addRoute("especies/:ID","GET","VisitorController","showSpecieFilter");
 $r->addRoute("nuevaespecie","POST","UserController","addSpecie");
 $r->addRoute("borrarespecie/:ID","GET","UserController","deleteSpecie");
 $r->addRoute("editordeespecie/:ID","GET","UserController","specieEditor");
