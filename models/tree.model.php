@@ -46,5 +46,12 @@
             $query->execute([$id_especie]);
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
-       
+        // apisector
+
+        public function guardarArbol($id_especie, $descripcion, $latitud, $longitud, $anio_plantado, $senializado){
+            $query=$this->db->prepare('INSERT INTO arbol(id_especie, descripcion, latitud, longitud, anio_plantado, senializado) VALUES(?,?,?,?,?,?)');
+            $query->execute([$id_especie, $descripcion, $latitud, $longitud, $anio_plantado, $senializado]);
+            return $this->db->lastInsertId();
+            // return last insert id
+        }
     }
