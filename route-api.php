@@ -6,7 +6,7 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 
 $r = new Router();
 
-$r->addRoute("arboles/:ID", "GET", "ApiController", "obtenerArboles");
+$r->addRoute("arboles", "GET", "ApiController", "obtenerArboles");
 
 
 $r->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

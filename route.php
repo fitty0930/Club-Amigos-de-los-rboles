@@ -29,8 +29,7 @@ $r->addRoute("nuevaespecie","POST","UserController","addSpecie");
 $r->addRoute("borrarespecie/:ID","GET","UserController","deleteSpecie");
 $r->addRoute("editordeespecie/:ID","GET","UserController","specieEditor");
 $r->addRoute("editarespecie/:ID","POST","UserController","editSpecie");
-// API
-$r->addRoute("api/mostrararboles","GET","VisitorController", "showTrees");
+
 
 // DEFAULT
 $r->setDefaultRoute("VisitorController", "showTrees");

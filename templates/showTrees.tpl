@@ -72,4 +72,8 @@
         </div>
     </div>
 </div>
+<div>
+<p> client side render </p>
+
+</div>
 {include file="footer.tpl"}
