@@ -1,6 +1,6 @@
 <?php
 require_once("models/tree.model.php");
-
+require_once("./api/json.view.php");
 
 
 
@@ -21,7 +21,7 @@ class ApiController{
         return json_decode($this->data);
     }
 
-    public function mostrarArboles($params=NULL){
+    public function obtenerArboles($params=NULL){
         $arboles = $this->modelArbol->getTrees(); // arboles es un array
         $this->JSONView->response($arboles, 200);
     }

@@ -74,6 +74,7 @@
 </div>
 <div>
 <p> client side render </p>
-
+    {include file="vue/treeTable.tpl"}
 </div>
+<script src="js/allTrees.js"></script>
 {include file="footer.tpl"}
