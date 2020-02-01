@@ -21,7 +21,10 @@
                 {* EXAMPLE <img v-bind:src="Variable + 'img/logo.png'"> *}
                 <td>{{ arbol.nombre }}</td>
                 <td>{{ arbol.anio_plantado }}</td>
-                
+                <td> 
+                    <p v-if= "arbol.senializado == 1"> Si </p>
+                    <p v-if= "arbol.senializado == 0"> No </p>
+                <td>
             </tr>
             
         </tbody>
