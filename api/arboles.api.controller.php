@@ -26,14 +26,15 @@ class ApiController{
         $this->JSONView->response($arboles, 200);
     }
     
-    public function agregarArbol(){
+    public function agregarArbol($params=NULL){
         
         $data = $this->getData();
+        // var_dump($data);
         $arbol = $this->modelArbol->guardarArbol($data->id_especie , $data->descripcion, $data->latitud, $data->longitud, $data->anio_plantado, $data->senializado);
         if($arbol){
-            $this->viewJSON->response('Su especimen se cargó con éxito', 200);
+            $this->JSONView->response('Su especimen se cargó con éxito', 200);
         }else{
-            $this->viewJSON->response('Su especimen no se pudo cargar, por favor reintente mas tarde', 500);
+            $this->JSONView->response('Su especimen no se pudo cargar, por favor reintente mas tarde', 500);
         }
     }
 }

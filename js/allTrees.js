@@ -22,37 +22,45 @@ document.addEventListener("DOMContentLoaded", function(){
         //     .catch(error => console.log(error));
         //     },
 
-        //     agregarComentario: function (){
-        //         let texto= document.querySelector("#texto-comentario").value;
-        //         let puntaje= document.querySelector("#puntaje-comentario").value;
-        //         let id_producto = document.querySelector(".id_producto").value;
-        //         let id_usuario = document.querySelector(".nombreusuario-id").id;
+            agregarEspecimen: function (){
+                let descripcion= document.querySelector("#descripcion-arbol").value;
+                let latitud= document.querySelector("#latitud-arbol").value;
+                let longitud = document.querySelector("#longitud-arbol").value;
+                let anio_plantado = document.querySelector("#anioplantado-arbol").value;
+                let especie = document.querySelector("#especie-arbol").value;
+                let senializacion = document.querySelector("#senializado-arbol").value;
 
-        //         let data = {
-        //             "texto": texto,
-        //             "puntaje": puntaje,
-        //             "id_producto" : id_producto,
-        //             "id_usuario" : id_usuario
-        //         };
+                let data = {
+                    "id_especie": especie,
+                    "descripcion": descripcion,
+                    "latitud": latitud,
+                    "longitud" : longitud,
+                    "anio_plantado" : anio_plantado,
+                    "senializado": senializacion
+                };
+                console.log(data);
+                let urlencoded = encodeURI("api/agregararboles")
 
-        //         let urlencoded = encodeURI("api/comentarios")
-
-        //         fetch(urlencoded,{
-        //             "method" : "POST",
-        //             "mode": 'cors',
-        //             "headers": {'Content-Type': 'application/json'},       
-        //             "body": JSON.stringify(data)
-        //         }).then(response => {
-        //             if (!response.ok) { console.log("error"); } else { return response.json()}
-        //         })
-        //         .then(() =>{
-        //             getComentarios();
-        //             document.querySelector("#texto-comentario").value = "";
-        //             document.querySelector("#puntaje-comentario").value = 5;
-        //             console.log("publicado con exito")
-        //         })
-        //         .catch(error => console.log(error));
-        //     }
+                fetch(urlencoded,{
+                    "method" : "POST",
+                    "mode": 'cors',
+                    "headers": {'Content-Type': 'application/json'},       
+                    "body": JSON.stringify(data)
+                }).then(response => {
+                    if (!response.ok) { console.log("error"); } else { return response.json()}
+                })
+                .then(() =>{
+                    getArboles();
+                    document.querySelector("#descripcion-arbol").value="";
+                    document.querySelector("#latitud-arbol").value="";
+                    document.querySelector("#longitud-arbol").value="";
+                    document.querySelector("#anioplantado-arbol").value="";
+                    document.querySelector("#especie-arbol").value="";
+                    document.querySelector("#senializado-arbol").value="";
+                    console.log("publicado con exito")
+                })
+                .catch(error => console.log(error));
+            }
             
         },
     }
