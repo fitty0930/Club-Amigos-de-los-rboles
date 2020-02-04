@@ -26,7 +26,10 @@
                             <p v-if="arbol.senializado == 1"> Si </p>
                             <p v-if="arbol.senializado == 0"> No </p>
                         <td>
-                        <td><button class="btn btn-danger" @click="(event)=>{borrarEspecimen(event, arbol.id_arbol)}" class="borrar"> Borrar </button> </td>
+                        <td>
+                            <button class="btn btn-danger" @click="(event)=>{borrarEspecimen(event, arbol.id_arbol)}" class="borrar"> Borrar </button>
+                            <button class="btn btn-warning" @click="(event)=>{editarEspecimen(event, arbol.id_arbol)}" class="borrar"> Modificar </button>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -34,7 +37,7 @@
         </div>
 
         <div class="col-md-4">
-            <h4 class="mb-0 card-header">Agregar un nuevo especimen con CSR </h4>
+            <h4 class="mb-0 card-header">Agregar o modificar un especimen con CSR </h4>
             <br>
 
             <label> Descripcion </label>

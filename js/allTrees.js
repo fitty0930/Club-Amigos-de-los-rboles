@@ -60,6 +60,46 @@ document.addEventListener("DOMContentLoaded", function(){
                     console.log("publicado con exito")
                 })
                 .catch(error => console.log(error));
+            },
+            
+            editarEspecimen: function (event, id_arbol){
+                let descripcion= document.querySelector("#descripcion-arbol").value;
+                let latitud= document.querySelector("#latitud-arbol").value;
+                let longitud = document.querySelector("#longitud-arbol").value;
+                let anio_plantado = document.querySelector("#anioplantado-arbol").value;
+                let especie = document.querySelector("#especie-arbol").value;
+                let senializacion = document.querySelector("#senializado-arbol").value;
+
+                let data = {
+                    "id_especie": especie,
+                    "descripcion": descripcion,
+                    "latitud": latitud,
+                    "longitud" : longitud,
+                    "anio_plantado" : anio_plantado,
+                    "senializado": senializacion
+                };
+                console.log(data);
+                let urlencoded = encodeURI("api/editararbol/"+id_arbol)
+
+                fetch(urlencoded,{
+                    "method" : "PUT",
+                    "mode": 'cors',
+                    "headers": {'Content-Type': 'application/json'},       
+                    "body": JSON.stringify(data)
+                }).then(response => {
+                    if (!response.ok) { console.log("error"); } else { return response.json()}
+                })
+                .then(() =>{
+                    getArboles();
+                    document.querySelector("#descripcion-arbol").value="";
+                    document.querySelector("#latitud-arbol").value="";
+                    document.querySelector("#longitud-arbol").value="";
+                    document.querySelector("#anioplantado-arbol").value="";
+                    document.querySelector("#especie-arbol").value="";
+                    document.querySelector("#senializado-arbol").value="";
+                    console.log("publicado con exito")
+                })
+                .catch(error => console.log(error));
             }
             
         },

@@ -49,4 +49,17 @@ class ApiController{
         $this->viewJSON->response("El especimen con el id: $id_arbol no existe", 404);
         }
     }
+
+    public function editarArbol($params=NULL){
+        $id_arbol = $params[':ID'];
+        $data = $this->getData();
+        $arbol=$this->modelArbol->getTree($id_arbol);
+        if($arbol){
+        $this->modelArbol->updateTree($id_arbol, $data->id_especie , $data->descripcion, $data->latitud, $data->longitud, $data->anio_plantado, $data->senializado);
+        $this->JSONView->response('Su especimen se eliminó con éxito', 200);
+        }
+        else{
+        $this->viewJSON->response("El especimen con el id: $id_arbol no existe", 404);
+        }
+    }
 }
