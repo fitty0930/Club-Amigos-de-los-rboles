@@ -8,7 +8,7 @@ $r = new Router();
 
 $r->addRoute("arboles", "GET", "ApiController", "obtenerArboles");
 $r->addRoute("agregararboles", "POST", "ApiController", "agregarArbol");
-
+$r->addRoute("borrararbol/:ID", "DELETE", "ApiController", "borrarArbol");
 $r->setDefaultRoute("ApiController", "obtenerArboles");
 
 $r->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

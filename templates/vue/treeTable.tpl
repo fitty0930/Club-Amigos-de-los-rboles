@@ -26,7 +26,7 @@
                             <p v-if="arbol.senializado == 1"> Si </p>
                             <p v-if="arbol.senializado == 0"> No </p>
                         <td>
-                        <td> botones </td>
+                        <td><button class="btn btn-danger" @click="(event)=>{borrarEspecimen(event, arbol.id_arbol)}" class="borrar"> Borrar </button> </td>
                     </tr>
 
                 </tbody>

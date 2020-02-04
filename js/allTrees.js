@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", function(){
         },
          
         methods: {
-        //     borrarComentario: function (event, id_comentario){
-        //     let urlencoded = encodeURI("api/comentarios/"+id_comentario)
-        //     fetch(urlencoded,{
-        //         "method" : "DELETE"
-        //     })
-        //     .then(response => {
-        //         if (!response.ok) { console.log("error"); } else { return response.json()}})
-        //     .then( () => {
-        //         getComentarios();
-        //         console.log("Borrado exitoso");
-        //     })
-        //     .catch(error => console.log(error));
-        //     },
+            borrarEspecimen: function (event, id_arbol){
+            let urlencoded = encodeURI("api/borrararbol/"+id_arbol)
+            fetch(urlencoded,{
+                "method" : "DELETE"
+            })
+            .then(response => {
+                if (!response.ok) { console.log("error"); } else { return response.json()}})
+            .then( () => {
+                getArboles();
+                console.log("Borrado exitoso");
+            })
+            .catch(error => console.log(error));
+            },
 
             agregarEspecimen: function (){
                 let descripcion= document.querySelector("#descripcion-arbol").value;

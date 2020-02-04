@@ -37,4 +37,16 @@ class ApiController{
             $this->JSONView->response('Su especimen no se pudo cargar, por favor reintente mas tarde', 500);
         }
     }
+
+    public function borrarArbol($params=NULL){
+        $id_arbol = $params[':ID'];
+        $arbol=$this->modelArbol->getTree($id_arbol);
+        if($arbol){
+        $this->modelArbol->deleteTree($id_arbol);
+        $this->JSONView->response('Su especimen se eliminó con éxito', 200);
+        }
+        else{
+        $this->viewJSON->response("El especimen con el id: $id_arbol no existe", 404);
+        }
+    }
 }
