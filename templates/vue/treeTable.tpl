@@ -4,6 +4,8 @@
     <div class="container">
     <div class="row">
         <div class="col-md-8">
+            <button class="btn btn-danger" @click="getArbolesGBSpecie" class="borrar"> Por especie </button>
+            <button class="btn btn-danger" @click="getArbolesGBExtintion" class="borrar"> Extincion </button>
             <div v-if="cargando" class="card-body">
                 Cargando...
             </div>

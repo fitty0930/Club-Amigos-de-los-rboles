@@ -100,6 +100,32 @@ document.addEventListener("DOMContentLoaded", function(){
                     console.log("publicado con exito")
                 })
                 .catch(error => console.log(error));
+            },
+
+            getArbolesGBSpecie(){
+                app.cargando = true;
+                let urlencoded = encodeURI("api/arbolesfiltro")
+                fetch(urlencoded)
+                .then(response => {
+                    if (!response.ok) { console.log("error"); } else {return response.json()}})
+                .then(arboles => {
+                    app.arboles = arboles;
+                    app.cargando = false;
+                })
+                .catch(error => console.log(error));
+            },
+
+            getArbolesGBExtintion(){
+                app.cargando = true;
+                let urlencoded = encodeURI("api/arbolesextincion")
+                fetch(urlencoded)
+                .then(response => {
+                    if (!response.ok) { console.log("error"); } else {return response.json()}})
+                .then(arboles => {
+                    app.arboles = arboles;
+                    app.cargando = false;
+                })
+                .catch(error => console.log(error));
             }
             
         },

@@ -25,6 +25,16 @@ class ApiController{
         $arboles = $this->modelArbol->getTrees(); // arboles es un array
         $this->JSONView->response($arboles, 200);
     }
+
+    public function obtenerArbolesGBSpecie($params=NULL){
+        $arboles = $this->modelArbol->getTreesFilter(); // arboles es un array
+        $this->JSONView->response($arboles, 200);
+    }
+
+    public function obtenerArbolesGBExtintion($params=NULL){
+        $arboles = $this->modelArbol->getTreesExt(); // arboles es un array
+        $this->JSONView->response($arboles, 200);
+    }
     
     public function agregarArbol($params=NULL){
         
