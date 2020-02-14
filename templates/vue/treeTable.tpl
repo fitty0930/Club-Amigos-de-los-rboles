@@ -2,6 +2,7 @@
 
 <section id="arboles-api">
     <div class="container">
+    <div class="row">
         <div class="col-md-8">
             <div v-if="cargando" class="card-body">
                 Cargando...
@@ -35,8 +36,45 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-md-3">
+            <h5> Editar / Modificar <h5>
+            <label> Descripcion </label>
+            <input id="editar-descripcion-arbol" class="form-control" type="text" name="descripcion" placeholder="algun arbol">
 
-        <div class="col-md-4">
+            <label> Latitud </label>
+            <input id="editar-latitud-arbol" class="form-control" type="number" name="latitud" placeholder="10">
+
+            <label> Longitud </label>
+            <input id="editar-longitud-arbol" class="form-control" type="number" name="longitud" placeholder="10">
+
+            <label> Año Plantado </label>
+            <input id="editar-anioplantado-arbol" class="form-control" type="number" name="anio_plantado" placeholder="1000">
+
+
+            {/literal}
+            <label> Especies </label>
+            <div class="input-group">
+                <select class="custom-select" name="especie" id="editar-especie-arbol">
+                    <option selected value=""> Elija un tipo de arbol </option>
+                    {foreach $especies as $especie}
+                    <option value="{$especie->id_especie}">{$especie->nombre}</option>
+                    {/foreach}
+                </select>
+            </div>
+            {literal}
+            <br>
+            <label> Señalizacion </label>
+            <div class="input-group">
+                <select class="custom-select" name="senializado" id="editar-senializado-arbol">
+                    <option selected value=""> Su arbol esta señalizado? </option>
+                    <option value="1"> Si </option>
+                    <option value="0"> No </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="col-md-12">
             <h4 class="mb-0 card-header">Agregar o modificar un especimen con CSR </h4>
             <br>
 

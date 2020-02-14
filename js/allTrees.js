@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function(){
             },
             
             editarEspecimen: function (event, id_arbol){
-                let descripcion= document.querySelector("#descripcion-arbol").value;
-                let latitud= document.querySelector("#latitud-arbol").value;
-                let longitud = document.querySelector("#longitud-arbol").value;
-                let anio_plantado = document.querySelector("#anioplantado-arbol").value;
-                let especie = document.querySelector("#especie-arbol").value;
-                let senializacion = document.querySelector("#senializado-arbol").value;
+                let descripcion= document.querySelector("#editar-descripcion-arbol").value;
+                let latitud= document.querySelector("#editar-latitud-arbol").value;
+                let longitud = document.querySelector("#editar-longitud-arbol").value;
+                let anio_plantado = document.querySelector("#editar-anioplantado-arbol").value;
+                let especie = document.querySelector("#editar-especie-arbol").value;
+                let senializacion = document.querySelector("#editar-senializado-arbol").value;
 
                 let data = {
                     "id_especie": especie,
@@ -91,12 +91,12 @@ document.addEventListener("DOMContentLoaded", function(){
                 })
                 .then(() =>{
                     getArboles();
-                    document.querySelector("#descripcion-arbol").value="";
-                    document.querySelector("#latitud-arbol").value="";
-                    document.querySelector("#longitud-arbol").value="";
-                    document.querySelector("#anioplantado-arbol").value="";
-                    document.querySelector("#especie-arbol").value="";
-                    document.querySelector("#senializado-arbol").value="";
+                    document.querySelector("#editar-descripcion-arbol").value="";
+                    document.querySelector("#editar-latitud-arbol").value="";
+                    document.querySelector("#editar-longitud-arbol").value="";
+                    document.querySelector("#editar-anioplantado-arbol").value="";
+                    document.querySelector("#editar-especie-arbol").value="";
+                    document.querySelector("#editar-senializado-arbol").value="";
                     console.log("publicado con exito")
                 })
                 .catch(error => console.log(error));
