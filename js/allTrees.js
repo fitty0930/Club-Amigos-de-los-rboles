@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 .catch(error => console.log(error));
             },
 
-            getArbolesGBSpecie(){
+            getArbolesGBSpecie: function(){
                 app.cargando = true;
                 let urlencoded = encodeURI("api/arbolesfiltro")
                 fetch(urlencoded)
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 .catch(error => console.log(error));
             },
 
-            getArbolesGBExtintion(){
+            getArbolesGBExtintion: function(){
                 app.cargando = true;
                 let urlencoded = encodeURI("api/arbolesextincion")
                 fetch(urlencoded)
@@ -126,8 +126,21 @@ document.addEventListener("DOMContentLoaded", function(){
                     app.cargando = false;
                 })
                 .catch(error => console.log(error));
-            }
+            },
             
+            filtrarEspecimen: function (){
+                let id_especie = document.querySelector("#filtrar-especie-arbol").value;
+                console.log(id_especie);
+                let urlencoded = encodeURI("api/filtrararboles/"+id_especie);
+                fetch(urlencoded)
+                .then(response => {
+                    if (!response.ok) { console.log("error"); } else { return response.json()}})
+                .then(arboles => {
+                    app.arboles = arboles;
+                    app.cargando = false;
+                })
+                .catch(error => console.log(error));
+                },
         },
     }
     );

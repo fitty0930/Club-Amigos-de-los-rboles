@@ -4,8 +4,18 @@
     <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <button class="btn btn-danger" @click="getArbolesGBSpecie" class="borrar"> Por especie </button>
-            <button class="btn btn-danger" @click="getArbolesGBExtintion" class="borrar"> Extincion </button>
+            <button class="btn btn-danger" @click="getArbolesGBSpecie" class="gbspecie"> Ordenar por especie </button>
+            <button class="btn btn-danger" @click="getArbolesGBExtintion" class="extintion"> Extincion </button>
+{/literal}
+            <div class="input-group">
+                <select class="custom-select" name="especie" id="filtrar-especie-arbol">
+                    <option selected value=""> Elija un filtro de especies </option>
+                    {foreach $especies as $especie}
+                    <option @click="filtrarEspecimen" value="{$especie->id_especie}">{$especie->nombre}</option>
+                    {/foreach}
+                </select>
+            </div>
+{literal}            
             <div v-if="cargando" class="card-body">
                 Cargando...
             </div>

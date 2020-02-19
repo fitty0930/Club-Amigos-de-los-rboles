@@ -20,8 +20,14 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
+        public function getTreesDD($id_especie){
+            $query = $this->db->prepare("SELECT arbol.id_arbol, arbol.id_especie, arbol.descripcion, arbol.latitud, arbol.longitud, arbol.anio_plantado, arbol.senializado, especie.nombre, especie.descripcion AS descripcionsp FROM arbol JOIN especie ON arbol.id_especie = especie.id_especie WHERE arbol.id_especie=?");
+            $query->execute([$id_especie]);
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
+
         public function getTreesFilter(){
-            $query=$this->db->prepare("SELECT arbol.id_arbol, arbol.id_especie, arbol.descripcion, arbol.latitud, arbol.longitud, arbol.anio_plantado, arbol.senializado, especie.nombre, especie.descripcion AS descripcionsp FROM arbol JOIN especie ON arbol.id_especie = especie.id_especie GROUP BY id_especie");
+            $query=$this->db->prepare("SELECT arbol.id_arbol, arbol.id_especie, arbol.descripcion, arbol.latitud, arbol.longitud, arbol.anio_plantado, arbol.senializado, especie.nombre, especie.descripcion AS descripcionsp FROM arbol JOIN especie ON arbol.id_especie = especie.id_especie ORDER BY id_especie");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_OBJ);
         }

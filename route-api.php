@@ -9,6 +9,7 @@ $r = new Router();
 $r->addRoute("arboles", "GET", "ApiController", "obtenerArboles");
 $r->addRoute("arbolesfiltro", "GET", "ApiController", "obtenerArbolesGBSpecie");
 $r->addRoute("arbolesextincion", "GET", "ApiController", "obtenerArbolesGBExtintion");
+$r->addRoute("filtrararboles/:ID", "GET", "ApiController", "obtenerArbolesFilterDD");
 
 $r->addRoute("agregararboles", "POST", "ApiController", "agregarArbol");
 
